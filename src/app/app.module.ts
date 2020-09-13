@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { AdivinaElNumeroComponent } from './componentes/adivina-el-numero/adivina-el-numero.component';
 import { ListadoDeResultadosComponent } from './componentes/listado-de-resultados/listado-de-resultados.component';
 import { LoginComponent } from './componentes/login/login.component';
+import {HttpClientModule} from '@angular/common/http';
 //  import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 // import { AccordionModule } from 'ngx-bootstrap';
@@ -52,6 +53,9 @@ import { MapaDeGoogleComponent } from './componentes/mapa-de-google/mapa-de-goog
 import { AgmCoreModule } from '@agm/core';
 import { InputJugadoresComponent } from './componentes/input-jugadores/input-jugadores.component';
 import { SexoPipe } from './pipes/sexo.pipe';
+import { TicTakToeComponent } from './componentes/tic-tak-toe/tic-tak-toe.component';
+import {MatGridListModule} from '@angular/material/grid-list';
+import {MatIconModule} from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -77,7 +81,8 @@ import { SexoPipe } from './pipes/sexo.pipe';
     MapaDeGoogleComponent,
     JugadoresListadoComponent,
     InputJugadoresComponent,
-    SexoPipe
+    SexoPipe,
+    TicTakToeComponent,
   ],
   imports: [
     BrowserModule,
@@ -85,7 +90,10 @@ import { SexoPipe } from './pipes/sexo.pipe';
     RuteandoModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyB6f8x4IjRlesQ3oETc6BXYQHVRTOlY3Ys'
-    })
+    }),
+    MatGridListModule,
+    MatIconModule,
+    HttpClientModule
     // NgbModule.forRoot(MiRuteo),
     // importo el ruteo
     // RouterModule.forRoot(MiRuteo)

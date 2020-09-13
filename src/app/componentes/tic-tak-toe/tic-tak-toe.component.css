@@ -1,0 +1,11 @@
+mat-grid-tile {
+  /*background: lightblue;*/
+}
+[_bottom_border] {
+  border-bottom: 10px solid black;
+}
+
+[_right_border_bottom_border] {
+  border-bottom: 10px solid black;
+  /*border-right: 10px solid black;*/
+}
