@@ -128,7 +128,7 @@ import {MatSortModule} from '@angular/material/sort';
   ],
   providers: [JuegoServiceService, MiHttpService, PaisesService, ArchivosJugadoresService, JugadoresService, {
     provide: MAT_DIALOG_DEFAULT_OPTIONS,
-    useValue: {hasBackdrop: false}
+    useValue: {hasBackdrop: true}
   }],
   bootstrap: [AppComponent]
 })

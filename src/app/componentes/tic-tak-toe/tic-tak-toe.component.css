@@ -113,3 +113,15 @@ tr:nth-of-type(3) td {
   margin-top: -15%;
   width: 100%;
 }
+
+.iconFit {
+  box-sizing: inherit;
+}
+::ng-deep .mat-icon{
+  height:60px !important;
+  width:60px !important;
+  font-size:60px !important;
+}
+.mat-grid-tile {
+  border: solid 2px #000;
+}

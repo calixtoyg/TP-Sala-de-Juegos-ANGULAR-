@@ -15,7 +15,6 @@ import {Player} from '../../clases/player';
 })
 export class TicTakToeComponent implements OnInit {
   game: TicTacToe;
-  config: any = {disableClose: true, autoFocus: true, position: {'top': '0', 'left': '0'}};
 
   constructor(iconRegistry: MatIconRegistry, sanitizer: DomSanitizer, public dialog: MatDialog) {
     // constructor(iconRegistry: MatIconRegistry, sanitizer: DomSanitizer) {
@@ -24,7 +23,6 @@ export class TicTakToeComponent implements OnInit {
       'thumbs-up',
       sanitizer.bypassSecurityTrustResourceUrl('assets/img/examples/thumbup-icon.svg'));
     this.dialog.open(SimpleDialogComponent, {
-      ...this.config,
       data: {title: '¿Que jugador juego?', body: `Juega el jugador Nº${this.game.whoPlays + 1}`}
     });
 
@@ -42,9 +40,9 @@ export class TicTakToeComponent implements OnInit {
       this.game.whoPlays = this.game.whoPlays === Player.ONE ? Player.TWO : Player.ONE;
     } else {
       this.dialog.open(SimpleDialogComponent, {
-        ...this.config,
         data: {title: 'Error', body: `No puedes jugar en donde ya hay o cruz o círculo`}
       });
+
     }
   }
 
@@ -53,17 +51,29 @@ export class TicTakToeComponent implements OnInit {
     const arrayOfColumns = this.separateColumnsIntoArrays(arrayOfRows);
     const arrayOfDiagonals = this.separateDiagonalsIntoArrays(arrayOfRows);
     const endResult = arrayOfRows.concat(arrayOfColumns).concat(arrayOfDiagonals);
-    // TODO chequear esto el every esta mal porque si es cruz o circulo manda true entonces x o x da true
-    const resultOfCombinations = endResult.some((arr: Array<TicTacToeType>) => {
-      return arr.every(value => value === TicTacToeType.CROSS || value === TicTacToeType.CIRCLE);
+    const isThereAWinner = endResult.some((arr: Array<TicTacToeType>) => {
+      return (arr.every(value => value === TicTacToeType.CROSS) || arr.every(value => value === TicTacToeType.CIRCLE));
     });
-    if (resultOfCombinations) {
-      this.dialog.open(SimpleDialogComponent, {
-        ...this.config,
-        data: {title: 'HAY UN GANADOR!!!', body: `El Jugador Nº${this.game.whoPlays + 1}  es el ganador`}
+    if (isThereAWinner) {
+      const rebootGameDialog = this.dialog.open(SimpleDialogComponent, {
+        data: {title: 'HAY UN GANADOR!!!', body: `El Jugador Nº${this.game.whoPlays + 1}  es el ganador (Si presiona ok se reinciara el juego)`}
+      });
+      rebootGameDialog.afterClosed().subscribe(value => {
+        if (value) {
+          window.location.reload();
+        }
       });
     }
-
+    if (!isThereAWinner && board.every(value => value === TicTacToeType.CROSS || value === TicTacToeType.CIRCLE)) {
+      const rebootGameDialog = this.dialog.open(SimpleDialogComponent, {
+        data: {title: 'No hay ganadores', body: 'Reincia el juego para continuar'}
+      });
+      rebootGameDialog.afterClosed().subscribe(value => {
+        if (value) {
+          window.location.reload();
+        }
+      });
+    }
     // console.log(endResult);
   }
 
