@@ -1,0 +1,30 @@
+<h2 mat-dialog-title>Registro</h2>
+
+<mat-dialog-content >
+
+<!--  <mat-grid-list cols="1" rowHeight="2:1">-->
+<!--    <mat-grid-tile>-->
+  <p>
+      <mat-form-field appearance="legacy">
+        <mat-label>Email:</mat-label>
+        <input matInput [(ngModel)]="data.email" placeholder="Ingrese su email">
+      </mat-form-field>
+  </p>
+<!--    </mat-grid-tile>-->
+<!--    <mat-grid-tile>-->
+  <p>
+      <mat-form-field appearance="standard">
+        <mat-label>Password:</mat-label>
+        <input matInput [(ngModel)]="data.password" placeholder="Ingrese su contraseña" type="password">
+      </mat-form-field>
+  </p>
+<!--    </mat-grid-tile>-->
+<!--  </mat-grid-list>-->
+
+
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button mat-raised-button color="warn" (click)="dialogRef.close()">Close</button>
+  <button mat-raised-button color="primary" [mat-dialog-close]="data.shouldRegister" (click)="data.save()">Registrarse</button>
+</mat-dialog-actions>

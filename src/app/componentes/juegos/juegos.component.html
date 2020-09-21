@@ -5,7 +5,7 @@
 </app-menu>
 <div class="flex">
 
-  <mat-toolbar>
+  <mat-toolbar color="primary">
     <button mat-button (click)="drawer.toggle()"><mat-icon>menu</mat-icon></button>
     <span>My Application</span>
   </mat-toolbar>
@@ -16,7 +16,7 @@
 <!--        <mat-list-item role="listitem"><li class="active"><a routerLink="/Principal">Ir a inicio</a></li></mat-list-item>-->
         <mat-list-item role="listitem" routerLink="/Principal"><mat-icon>home</mat-icon><span class="menu-item">Inicio</span></mat-list-item>
         <mat-list-item role="listitem" routerLink="/Juegos"><mat-icon>casino</mat-icon><span class="menu-item">Juegos</span></mat-list-item>
-        <mat-list-item role="listitem">Item 3</mat-list-item>
+<!--        <mat-list-item role="listitem">Item 3</mat-list-item>-->
       </mat-list>
     </mat-drawer>
       <router-outlet></router-outlet>

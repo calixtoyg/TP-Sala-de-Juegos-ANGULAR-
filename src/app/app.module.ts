@@ -1,6 +1,7 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 import {FormsModule} from '@angular/forms';
+import {  ReactiveFormsModule} from '@angular/forms';
 import {AppComponent} from './app.component';
 import {AdivinaElNumeroComponent} from './componentes/adivina-el-numero/adivina-el-numero.component';
 import {ListadoDeResultadosComponent} from './componentes/listado-de-resultados/listado-de-resultados.component';
@@ -71,6 +72,9 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatTableModule} from '@angular/material/table';
 import {MatSortModule} from '@angular/material/sort';
 import {MatSelectModule} from '@angular/material/select';
+import {MatFormField, MatFormFieldModule} from '@angular/material/form-field';
+import { RegisterDialogComponent } from './componentes/register-dialog/register-dialog.component';
+import {MatInputModule} from '@angular/material/input';
 
 @NgModule({
   declarations: [
@@ -99,6 +103,7 @@ import {MatSelectModule} from '@angular/material/select';
     SexoPipe,
     TicTacToeComponent,
     SimpleDialogComponent,
+    RegisterDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -124,6 +129,9 @@ import {MatSelectModule} from '@angular/material/select';
     HttpClientModule,
     BrowserAnimationsModule,
     MatSelectModule,
+    MatFormFieldModule,
+    MatInputModule,
+    ReactiveFormsModule
     // NgbModule.forRoot(MiRuteo),
     // importo el ruteo
     // RouterModule.forRoot(MiRuteo)

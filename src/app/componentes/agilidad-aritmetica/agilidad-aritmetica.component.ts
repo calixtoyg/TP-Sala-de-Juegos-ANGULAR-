@@ -34,7 +34,7 @@ export class AgilidadAritmeticaComponent implements OnInit {
         clearInterval(this.repetidor);
         this.verificar();
         this.ocultarVerificar = true;
-        this.Tiempo = 5;
+        this.Tiempo = 2;
       }
       }, 900);
 
