@@ -117,7 +117,7 @@ tr:nth-of-type(3) td {
 .iconFit {
   box-sizing: inherit;
 }
-::ng-deep .mat-icon{
+.mat-icon-tic-tac-toe{
   height:60px !important;
   width:60px !important;
   font-size:60px !important;

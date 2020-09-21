@@ -53,7 +53,7 @@ import {MapaDeGoogleComponent} from './componentes/mapa-de-google/mapa-de-google
 import {AgmCoreModule} from '@agm/core';
 import {InputJugadoresComponent} from './componentes/input-jugadores/input-jugadores.component';
 import {SexoPipe} from './pipes/sexo.pipe';
-import {TicTakToeComponent} from './componentes/tic-tak-toe/tic-tak-toe.component';
+import {TicTacToeComponent} from './componentes/tic-tak-toe/tic-tac-toe.component';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatIconModule} from '@angular/material/icon';
 import {SimpleDialogComponent} from './componentes/who-plays-dialog/simple-dialog.component';
@@ -70,6 +70,7 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatTableModule} from '@angular/material/table';
 import {MatSortModule} from '@angular/material/sort';
+import {MatSelectModule} from '@angular/material/select';
 
 @NgModule({
   declarations: [
@@ -96,7 +97,7 @@ import {MatSortModule} from '@angular/material/sort';
     JugadoresListadoComponent,
     InputJugadoresComponent,
     SexoPipe,
-    TicTakToeComponent,
+    TicTacToeComponent,
     SimpleDialogComponent,
   ],
   imports: [
@@ -121,7 +122,8 @@ import {MatSortModule} from '@angular/material/sort';
     MatSortModule,
     MatProgressSpinnerModule,
     HttpClientModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatSelectModule,
     // NgbModule.forRoot(MiRuteo),
     // importo el ruteo
     // RouterModule.forRoot(MiRuteo)

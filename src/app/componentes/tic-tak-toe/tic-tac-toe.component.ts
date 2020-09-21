@@ -9,11 +9,11 @@ import {Player} from '../../clases/player';
 
 
 @Component({
-  selector: 'app-tic-tak-toe',
-  templateUrl: './tic-tak-toe.component.html',
-  styleUrls: ['./tic-tak-toe.component.css']
+  selector: 'app-tic-tac-toe',
+  templateUrl: './tic-tac-toe.component.html',
+  styleUrls: ['./tic-tac-toe.component.css']
 })
-export class TicTakToeComponent implements OnInit {
+export class TicTacToeComponent implements OnInit {
   game: TicTacToe;
 
   constructor(iconRegistry: MatIconRegistry, sanitizer: DomSanitizer, public dialog: MatDialog) {

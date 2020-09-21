@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TicTakToeComponent } from './tic-tak-toe.component';
+import { TicTacToeComponent } from './tic-tac-toe.component';
 
 describe('TicTakToeComponent', () => {
-  let component: TicTakToeComponent;
-  let fixture: ComponentFixture<TicTakToeComponent>;
+  let component: TicTacToeComponent;
+  let fixture: ComponentFixture<TicTacToeComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ TicTakToeComponent ]
+      declarations: [ TicTacToeComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(TicTakToeComponent);
+    fixture = TestBed.createComponent(TicTacToeComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

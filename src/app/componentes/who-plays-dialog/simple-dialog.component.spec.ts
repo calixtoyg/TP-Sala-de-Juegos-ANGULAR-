@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SimpleDialog } from './simple-dialog.component';
+import { SimpleDialogComponent } from './simple-dialog.component';
 
 describe('WhoPlaysDialogComponent', () => {
-  let component: SimpleDialog;
-  let fixture: ComponentFixture<SimpleDialog>;
+  let component: SimpleDialogComponent;
+  let fixture: ComponentFixture<SimpleDialogComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ SimpleDialog ]
+      declarations: [ SimpleDialogComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(SimpleDialog);
+    fixture = TestBed.createComponent(SimpleDialogComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

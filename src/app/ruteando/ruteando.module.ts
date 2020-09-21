@@ -21,7 +21,7 @@ import {QuienSoyComponent} from '../componentes/quien-soy/quien-soy.component';
 import {ListadoDePaisesComponent} from '../componentes/listado-de-paises/listado-de-paises.component';
 import {MapaDeGoogleComponent} from '../componentes/mapa-de-google/mapa-de-google.component';
 import {JugadoresListadoComponent} from '../componentes/jugadores-listado/jugadores-listado.component';
-import {TicTakToeComponent} from '../componentes/tic-tak-toe/tic-tak-toe.component';
+import {TicTacToeComponent} from '../componentes/tic-tak-toe/tic-tac-toe.component';
 
 
 // declaro donde quiero que se dirija
@@ -35,7 +35,7 @@ const MiRuteo = [
   {path: 'Principal', component: PrincipalComponent},
   {path: 'Listado', component: ListadoComponent},
   {path: 'Paises', component: ListadoDePaisesComponent},
-  {path: 'TicTakToe', component: TicTakToeComponent},
+  {path: 'TicTakToe', component: TicTacToeComponent},
 
 
   {
@@ -48,7 +48,7 @@ const MiRuteo = [
         {path: 'AdivinaMasListado', component: AdivinaMasListadoComponent},
         {path: 'AgilidadaMasListado', component: AgilidadMasListadoComponent},
         {path: 'Agilidad', component: AgilidadAritmeticaComponent},
-        {path: 'TicTakToe', component: TicTakToeComponent},
+        {path: 'TicTacToe', component: TicTacToeComponent},
 
       ]
   },
