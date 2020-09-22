@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "tp-sala-de-juegos-87db7": {
+      "hosting": {
+        "sala-de-juegos": [
+          "tp-sala-de-juegos-87db7"
+        ]
+      }
+    }
+  }
+}

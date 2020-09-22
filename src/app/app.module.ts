@@ -75,6 +75,11 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatFormField, MatFormFieldModule} from '@angular/material/form-field';
 import { RegisterDialogComponent } from './componentes/register-dialog/register-dialog.component';
 import {MatInputModule} from '@angular/material/input';
+import {AngularFireModule} from '@angular/fire';
+import {environment} from '../environments/environment';
+import { AngularFireAnalyticsModule } from '@angular/fire/analytics';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { FirebaseTestComponent } from './componentes/firebase-test/firebase-test.component';
 
 @NgModule({
   declarations: [
@@ -104,11 +109,13 @@ import {MatInputModule} from '@angular/material/input';
     TicTacToeComponent,
     SimpleDialogComponent,
     RegisterDialogComponent,
+    FirebaseTestComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
     RuteandoModule,
+    AngularFireModule.initializeApp(environment.firebase),
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyB6f8x4IjRlesQ3oETc6BXYQHVRTOlY3Ys'
     }),
@@ -131,7 +138,9 @@ import {MatInputModule} from '@angular/material/input';
     MatSelectModule,
     MatFormFieldModule,
     MatInputModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AngularFireAnalyticsModule,
+    AngularFirestoreModule
     // NgbModule.forRoot(MiRuteo),
     // importo el ruteo
     // RouterModule.forRoot(MiRuteo)

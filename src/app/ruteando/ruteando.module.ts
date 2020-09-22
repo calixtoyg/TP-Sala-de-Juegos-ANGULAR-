@@ -22,6 +22,7 @@ import {ListadoDePaisesComponent} from '../componentes/listado-de-paises/listado
 import {MapaDeGoogleComponent} from '../componentes/mapa-de-google/mapa-de-google.component';
 import {JugadoresListadoComponent} from '../componentes/jugadores-listado/jugadores-listado.component';
 import {TicTacToeComponent} from '../componentes/tic-tak-toe/tic-tac-toe.component';
+import {FirebaseTestComponent} from '../componentes/firebase-test/firebase-test.component';
 
 
 // declaro donde quiero que se dirija
@@ -49,9 +50,9 @@ const MiRuteo = [
         {path: 'AgilidadaMasListado', component: AgilidadMasListadoComponent},
         {path: 'Agilidad', component: AgilidadAritmeticaComponent},
         {path: 'TicTacToe', component: TicTacToeComponent},
-
       ]
   },
+  {path: 'firebaseTest', component: FirebaseTestComponent},
   {path: '**', component: ErrorComponent},
   {path: 'error', component: ErrorComponent}];
 
