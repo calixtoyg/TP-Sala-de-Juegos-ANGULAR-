@@ -1,19 +1,22 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Injectable, OnInit} from '@angular/core';
 import {Router, ActivatedRoute, ParamMap} from '@angular/router';
 import {DomSanitizer} from '@angular/platform-browser';
 import {MatDialog, MatDialogRef} from '@angular/material/dialog';
 import {RegisterDialogComponent} from '../register-dialog/register-dialog.component';
+import {AuthenticationService} from '../../servicios/authentication.service';
+import {Observable} from 'rxjs';
 // para poder hacer las validaciones
 // import { Validators, FormBuilder, FormControl, FormGroup} from '@angular/forms';
 @Component({
   selector: 'app-registro',
   templateUrl: './registro.component.html',
-  styleUrls: ['./registro.component.css']
+  styleUrls: ['./registro.component.css'],
 })
 export class RegistroComponent implements OnInit {
   dialogInstance: MatDialogRef<RegisterDialogComponent>;
   email: string;
   password: string;
+  authentication: Observable<any>;
 
   shouldRegister: any;
 
@@ -22,25 +25,41 @@ export class RegistroComponent implements OnInit {
    formRegistro:FormGroup=this.miConstructor.group({
      usuario:this.email
    });*/
-  constructor(public dialog: MatDialog) {
-
+  constructor(public dialog: MatDialog, private auth: AuthenticationService) {
   }
 
   ngOnInit() {
   }
 
   openRegistry() {
+    console.log(this);
     this.dialogInstance = this.dialog.open(RegisterDialogComponent, {
       width: '500px',
-      data: {email: this.email, password: this.password, shouldRegister: this.shouldRegister, save: this.save}
+      data: {email: this.email, password: this.password}
     });
-
     this.dialogInstance.afterClosed().subscribe(res => {
-      console.log(res);
+      if (res.shouldSave) {
+        this.save(res.email, res.password);
+      }
+    });
+
+  }
+
+  save(email: string, password: string) {
+    this.authentication = this.auth.signUp(email, password);
+    this.authentication.subscribe(value => {
+      console.log(value);
+    }, error => {
+      console.log(error);
     });
   }
-  save() {
 
+  login(email: string, password: string) {
+    this.authentication = this.auth.login(email, password);
+    this.authentication.subscribe(value => {
+      console.log(value);
+    }, error => {
+      console.log(error);
+    });
   }
-
 }

@@ -80,6 +80,7 @@ import {environment} from '../environments/environment';
 import { AngularFireAnalyticsModule } from '@angular/fire/analytics';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { FirebaseTestComponent } from './componentes/firebase-test/firebase-test.component';
+import {AuthenticationService} from './servicios/authentication.service';
 
 @NgModule({
   declarations: [
@@ -148,7 +149,7 @@ import { FirebaseTestComponent } from './componentes/firebase-test/firebase-test
   providers: [JuegoServiceService, MiHttpService, PaisesService, ArchivosJugadoresService, JugadoresService, {
     provide: MAT_DIALOG_DEFAULT_OPTIONS,
     useValue: {hasBackdrop: true}
-  }],
+  }, AuthenticationService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

@@ -25,6 +25,6 @@
 </mat-dialog-content>
 
 <mat-dialog-actions align="end">
-  <button mat-raised-button color="warn" (click)="dialogRef.close()">Close</button>
-  <button mat-raised-button color="primary" [mat-dialog-close]="data.shouldRegister" (click)="data.save()">Registrarse</button>
+  <button mat-raised-button color="warn" (click)="dialogRef.close(false)">Close</button>
+  <button mat-raised-button color="primary" (click)="dialogRef.close({shouldSave: true,email: data.email,password: data.password})">Registrarse</button>
 </mat-dialog-actions>
