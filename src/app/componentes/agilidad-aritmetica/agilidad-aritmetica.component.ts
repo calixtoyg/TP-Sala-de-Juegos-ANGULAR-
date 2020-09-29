@@ -16,6 +16,7 @@ export class AgilidadAritmeticaComponent implements OnInit {
   ocultarVerificar: boolean;
   Tiempo: number;
   repetidor: any;
+  gano: boolean;
   private subscription: Subscription;
 
   ngOnInit() {
@@ -25,6 +26,7 @@ export class AgilidadAritmeticaComponent implements OnInit {
     this.ocultarVerificar = true;
     this.Tiempo = 5;
     this.nuevoJuego = new JuegoAgilidad();
+    this.nuevoJuego.segundoNumeroIngresado = 10;
     console.info(this.nuevoJuego);
   }
 
@@ -36,7 +38,7 @@ export class AgilidadAritmeticaComponent implements OnInit {
       console.log('llego', this.Tiempo);
       if (this.Tiempo == 0) {
         clearInterval(this.repetidor);
-        this.verificar();
+        alert(this.verificar());
         this.ocultarVerificar = true;
         this.nuevoJuego = new JuegoAgilidad();
         this.Tiempo = 2;
@@ -50,25 +52,17 @@ export class AgilidadAritmeticaComponent implements OnInit {
     this.ocultarVerificar = false;
     switch (this.nuevoJuego.operator) {
       case '/':
-        console.log('Entro a dividir');
-        this.nuevoJuego.gano = (this.nuevoJuego.numeroIngresado / this.nuevoJuego.segundoNumeroIngresado) === this.nuevoJuego.respuesta;
-        console.log(this.nuevoJuego.gano);
-        break;
+        this.gano = Number((this.nuevoJuego.numeroIngresado / this.nuevoJuego.segundoNumeroIngresado).toFixed(2)) === Number(this.nuevoJuego.respuesta.toFixed(2));
+        return this.gano;
       case '*':
-        console.log('Entro a Multiplicar');
-        this.nuevoJuego.gano = this.nuevoJuego.numeroIngresado * this.nuevoJuego.segundoNumeroIngresado === this.nuevoJuego.respuesta;
-        console.log(this.nuevoJuego.gano);
-        break;
+        this.gano = this.nuevoJuego.numeroIngresado * this.nuevoJuego.segundoNumeroIngresado === Number(this.nuevoJuego.respuesta);
+        return this.gano;
       case '+':
-        console.log('Entro a Sumar');
-        this.nuevoJuego.gano = this.nuevoJuego.numeroIngresado + this.nuevoJuego.segundoNumeroIngresado === this.nuevoJuego.respuesta;
-        console.log(this.nuevoJuego.gano);
-        break;
+        this.gano = this.nuevoJuego.numeroIngresado + this.nuevoJuego.segundoNumeroIngresado === Number(this.nuevoJuego.respuesta);
+        return this.gano;
       case '-':
-        console.log('Entro a Restar');
-        this.nuevoJuego.gano = this.nuevoJuego.numeroIngresado - this.nuevoJuego.segundoNumeroIngresado === this.nuevoJuego.respuesta;
-        console.log(this.nuevoJuego.gano);
-        break;
+        this.gano = this.nuevoJuego.numeroIngresado - this.nuevoJuego.segundoNumeroIngresado === Number(this.nuevoJuego.respuesta);
+        return this.gano;
     }
     clearInterval(this.repetidor);
 
