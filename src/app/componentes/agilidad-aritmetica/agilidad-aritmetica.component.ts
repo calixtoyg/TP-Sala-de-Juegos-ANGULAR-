@@ -38,10 +38,10 @@ export class AgilidadAritmeticaComponent implements OnInit {
         clearInterval(this.repetidor);
         this.verificar();
         this.ocultarVerificar = true;
+        this.nuevoJuego = new JuegoAgilidad();
         this.Tiempo = 2;
       }
     }, 900);
-    this.nuevoJuego = new JuegoAgilidad();
 
 
   }
