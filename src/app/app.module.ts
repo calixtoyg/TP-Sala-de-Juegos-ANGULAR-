@@ -81,6 +81,9 @@ import { AngularFireAnalyticsModule } from '@angular/fire/analytics';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { FirebaseTestComponent } from './componentes/firebase-test/firebase-test.component';
 import {AuthenticationService} from './servicios/authentication.service';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { MenuCardPrincipalComponent } from './componentes/menu-card-principal/menu-card-principal.component';
+
 
 @NgModule({
   declarations: [
@@ -111,10 +114,12 @@ import {AuthenticationService} from './servicios/authentication.service';
     SimpleDialogComponent,
     RegisterDialogComponent,
     FirebaseTestComponent,
+    MenuCardPrincipalComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     RuteandoModule,
     AngularFireModule.initializeApp(environment.firebase),
     AgmCoreModule.forRoot({
@@ -141,7 +146,8 @@ import {AuthenticationService} from './servicios/authentication.service';
     MatInputModule,
     ReactiveFormsModule,
     AngularFireAnalyticsModule,
-    AngularFirestoreModule
+    AngularFirestoreModule,
+    FlexLayoutModule
     // NgbModule.forRoot(MiRuteo),
     // importo el ruteo
     // RouterModule.forRoot(MiRuteo)

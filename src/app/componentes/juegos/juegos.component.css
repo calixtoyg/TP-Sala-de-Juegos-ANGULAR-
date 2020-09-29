@@ -7,6 +7,7 @@ mat-drawer-content {
 
 
 .parent {
+
   width: 100%;
   height: calc(100vh - 64px)
 }
@@ -22,4 +23,7 @@ mat-drawer-content {
 }
 .menu-item {
   padding: 5px;
+}
+[card] {
+  max-height: 100px;
 }

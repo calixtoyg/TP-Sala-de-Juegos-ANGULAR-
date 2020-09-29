@@ -5,6 +5,8 @@ import {MatDialog, MatDialogRef} from '@angular/material/dialog';
 import {RegisterDialogComponent} from '../register-dialog/register-dialog.component';
 import {AuthenticationService} from '../../servicios/authentication.service';
 import {Observable} from 'rxjs';
+import UserCredential = firebase.auth.UserCredential;
+import {map} from 'rxjs/operators';
 // para poder hacer las validaciones
 // import { Validators, FormBuilder, FormControl, FormGroup} from '@angular/forms';
 @Component({
@@ -16,7 +18,7 @@ export class RegistroComponent implements OnInit {
   dialogInstance: MatDialogRef<RegisterDialogComponent>;
   email: string;
   password: string;
-  authentication: Observable<any>;
+  authentication: any;
 
   shouldRegister: any;
 
@@ -32,7 +34,6 @@ export class RegistroComponent implements OnInit {
   }
 
   openRegistry() {
-    console.log(this);
     this.dialogInstance = this.dialog.open(RegisterDialogComponent, {
       width: '500px',
       data: {email: this.email, password: this.password}
@@ -56,10 +57,9 @@ export class RegistroComponent implements OnInit {
 
   login(email: string, password: string) {
     this.authentication = this.auth.login(email, password);
-    this.authentication.subscribe(value => {
-      console.log(value);
-    }, error => {
-      console.log(error);
-    });
+  }
+
+  logout() {
+    this.auth.logout();
   }
 }

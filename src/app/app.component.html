@@ -1,3 +1,71 @@
-
 <!--Donde se encuentre este tag, se instancian los componentes dependientes del ruteo-->
-<router-outlet></router-outlet>
+<app-cabecera></app-cabecera>
+
+
+
+
+<mat-toolbar color="primary">
+
+  <div
+    fxLayout="row"
+    fxLayout.xs="row"
+    fxLayoutAlign="space-around center"
+    fxLayoutGap="0"
+    fxFlexFill
+    fxLayoutGap.xs="0">
+    <div fxFlex="18" fxFlexOrder="1">
+
+    </div>
+    <button fxFlex="2" fxFlexOrder="0" fxFlexAlign="center" mat-button (click)="drawer.toggle()">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <h2 fxFlex="60">TP Sala de Juegos</h2>
+
+    <button mat-raised-button *ngIf="!loggedIn" fxFlexOffset="5" fxFlexAlign="center" (click)="register()">Registrarse</button>
+    <button *ngIf="!loggedIn" fxFlexOffset="5" mat-button (click)="login()">
+      <mat-icon>login</mat-icon>
+    </button>
+    <button *ngIf="loggedIn" fxFlex="20"  mat-button (click)="logOut()">
+      <mat-icon>account_circle</mat-icon>
+    </button>
+
+  </div>
+</mat-toolbar>
+<mat-drawer-container class="parent" [hasBackdrop]="true">
+  <mat-drawer #drawer mode="side" class="sidebar">
+    <mat-list role="list">
+      <mat-list-item role="listitem" routerLink="/Principal">
+        <mat-icon>home</mat-icon>
+        <span class="menu-item">Inicio</span></mat-list-item>
+      <mat-list-item role="listitem" routerLink="/Juegos">
+        <mat-icon>casino</mat-icon>
+        <span class="menu-item">Juegos</span></mat-list-item>
+    </mat-list>
+  </mat-drawer>
+  <router-outlet></router-outlet>
+</mat-drawer-container>
+<!--<div fxLayout-->
+<!--     fxLayout.xs="row wrap"-->
+<!--     fxLayoutAlign="center flex-start"-->
+<!--     fxLayoutGap="0"-->
+<!--     fxLayoutGap.xs="0">-->
+<!--  <button fxFlex="20%"  fxFlexOrder="0" mat-button (click)="drawer.toggle()">-->
+<!--    <mat-icon>menu</mat-icon>-->
+<!--  </button>-->
+<!--  <h2 fxFlex="60%" fxFlexAlign="center">TP Sala de Juegos</h2>-->
+<!--  <div-->
+<!--    *ngIf="!loggedIn"-->
+<!--    fxFlex="20%"-->
+<!--    fxLayout="row wrap"-->
+<!--    fxLayoutAlign="end stretch"-->
+<!--  >-->
+<!--    <span fxFlex="50%" (click)="register()">Registrarse</span>-->
+<!--    <button fxFlex="50%" mat-button (click)="login()">-->
+<!--      <mat-icon>login</mat-icon>-->
+<!--    </button>-->
+<!--  </div>-->
+<!--  <button *ngIf="loggedIn" fxFlex="20%" fxFlexAlign="flex-end" mat-button (click)="logOut()">-->
+<!--    <mat-icon>account_circle</mat-icon>-->
+<!--  </button>-->
+
+<!--</div>-->

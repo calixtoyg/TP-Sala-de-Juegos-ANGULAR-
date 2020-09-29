@@ -21,37 +21,74 @@
     </div>
   </div>
 </div-->
- <div class="container" >
+<div class="container">
   <div class="jumbotron" style="padding:50px;">
     <form action="return true;">
       <div class="imgcontainer">
-        <img src="./assets/imagenes/login.png" alt="Avatar" class="avatar" max-width="104" >
+        <img src="./assets/imagenes/login.png" alt="Avatar" class="avatar" max-width="104">
       </div>
 
       <div class="container">
-        <label><b>Usuario</b></label>
-        <input type="text" placeholder="Usuario"  [(ngModel)]="usuario"  name="uname" required>
+        <form [formGroup]="userForm"  #formDir="ngForm">
+          <div class="form-group">
+            <label><b>Usuario</b></label>
+            <input id="email" formControlName="email" type="text" placeholder="Email" [(ngModel)]="user.email">
+<!--            <label class="error">{{errorMessage}}</label>-->
+<!--            <label class="error">error</label>-->
 
-        <label><b>Clave</b></label>
-        <input type="password" placeholder="Clave"  [(ngModel)]="clave" name="psw" required>
-            
-        <button *ngIf="logeando"  (click)="MoverBarraDeProgreso()" >Ingresar</button>
-       
-        <div *ngIf="!logeando" class="progress">
-            <div class="progress-bar progress-bar-info progress-bar-striped active" [class]="clase" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100" [style.width]="ProgresoDeAncho" >
-              {{progresoMensaje}} - {{progreso}}%
+            <div *ngIf="email.invalid && (email.dirty || email.touched)"
+                 class="alert alert-danger">
+
+              <div *ngIf="email.errors.required">
+                Email requerido
+              </div>
+              <div *ngIf="email.errors.email">
+                Email tiene que ser válido (e.g: sarasa@algunproveedor.com)
+              </div>
+              <!--          <div *ngIf="email.errors.forbiddenName">-->
+              <!--            Name cannot be Bob.-->
+              <!--          </div>-->
+
             </div>
-        </div>
-       
-        <input type="checkbox" checked="checked"> Recordar mis datos
+          </div>
+
+<!--          <div *ngIf="email.invalid && (email.dirty || email.touched)"-->
+<!--               class="alert alert-danger">-->
+
+<!--            <div *ngIf="email.errors.required">-->
+<!--              Name is required.-->
+<!--            </div>-->
+<!--            <div *ngIf="email.errors.email">-->
+<!--              Valid email is required-->
+<!--            </div>-->
+<!--            &lt;!&ndash;          <div *ngIf="email.errors.forbiddenName">&ndash;&gt;-->
+<!--            &lt;!&ndash;            Name cannot be Bob.&ndash;&gt;-->
+<!--            &lt;!&ndash;          </div>&ndash;&gt;-->
+
+<!--          </div>-->
+          <label><b>Clave</b></label>
+          <input formControlName="password" type="password" placeholder="Clave" name="psw" [(ngModel)]="user.password">
+
+          <button *ngIf="logeando" (click)="MoverBarraDeProgreso()">Ingresar</button>
+
+<!--          <div *ngIf="!logeando" class="progress">-->
+<!--            <div class="progress-bar progress-bar-info progress-bar-striped active" [class]="clase" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"-->
+<!--                 [style.width]="ProgresoDeAncho">-->
+<!--              {{progresoMensaje}} - {{progreso}}%-->
+<!--            </div>-->
+<!--          </div>-->
+
+          <input type="checkbox" checked="checked"> Recordar mis datos
+        </form>
       </div>
 
       <div class="container" style="background-color:#f1f1f1">
         <button type="button" class="cancelbtn">Cancelar</button>
-        <button type="button" class="aceptbtn" routerLink="/Registro" >Registrarse</button>
-        <span class="psw">Te olvidaste <a href="#">la clave?</a></span>
+<!--        <button type="button" class="aceptbtn" routerLink="/Registro">Registrarse</button>-->
+        <button type="button" class="aceptbtn" (click)="submit()">Login</button>
+        <span class="psw">Te olvidaste <a (click)="forgotPassword()">la clave?</a></span>
       </div>
-     
+
     </form>
   </div>
 </div>

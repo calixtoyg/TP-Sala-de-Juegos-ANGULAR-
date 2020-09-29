@@ -1,4 +1,3 @@
-import {Injectable} from '@angular/core';
 import {AngularFireAuth} from '@angular/fire/auth';
 import 'rxjs/add/observable/fromPromise';
 import {Observable} from 'rxjs/Observable';
@@ -7,6 +6,7 @@ import * as moment from 'moment';
 import {Subject} from 'rxjs';
 import {User} from 'firebase';
 import {Router} from '@angular/router';
+import {Injectable} from '@angular/core';
 
 @Injectable({
   providedIn: 'root'
@@ -20,15 +20,17 @@ export class AuthenticationService {
 
   private setSession(value: UserCredential) {
     this.authenticated = true;
+    console.log(`logging: ${value}`);
     value.user.getIdTokenResult().then(tokenInfo => {
+      console.log(`log succesful: ${tokenInfo}`);
       localStorage.setItem('id_token', tokenInfo.token);
       localStorage.setItem('expires_at', tokenInfo.expirationTime);
       this.router.navigate(['/']);
       return true;
     }).catch(error => {
+      console.error(error);
       return error;
     });
-    return value;
   }
 
   private returnErrorCode(error) {
@@ -37,11 +39,11 @@ export class AuthenticationService {
 
   public signUp(email, password) {
     console.log(`Email: ${email}`);
-    Observable.fromPromise(this.afAuth.createUserWithEmailAndPassword(email, password));
+    return this.afAuth.createUserWithEmailAndPassword(email, password);
   }
 
   public login(email, password) {
-    this.afAuth.signInWithEmailAndPassword(email, password).then(this.setSession).catch(this.returnErrorCode);
+    return this.afAuth.signInWithEmailAndPassword(email, password);
   }
 
   public async logout() {
@@ -53,8 +55,7 @@ export class AuthenticationService {
   }
 
   guessLogin() {
-    Observable.fromPromise(this.afAuth.signInAnonymously()).subscribe(AuthenticationService.setSession, AuthenticationService.returnErrorCode);
-
+    this.afAuth.signInAnonymously().then(this.setSession).catch(this.returnErrorCode);
   }
 
   public isLoggedIn() {
@@ -72,5 +73,9 @@ export class AuthenticationService {
       this.authenticated = !!user;
       this.userLoggedIn.next(this.authenticated);
     });
+  }
+
+  forgotPassword(email: string) {
+    return this.afAuth.sendPasswordResetEmail(email);
   }
 }
