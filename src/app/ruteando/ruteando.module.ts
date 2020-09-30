@@ -22,6 +22,7 @@ import {JuegosComponent} from '../componentes/juegos/juegos.component';
 import {RoutingToLoginService} from '../servicios/routing-to-login.service';
 import {map, take} from 'rxjs/operators';
 import {RedirectToLoginGuard} from '../guards/redirect-to-login.guard';
+import {FirestoreTestComponent} from '../componentes/firestore-test/firestore-test.component';
 
 const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['/login']);
 // const onlyAllowSelf: AuthPipeGenerator = (next: ActivatedRouteSnapshot) => map(() => {
@@ -67,6 +68,12 @@ const MiRuteo = [
         {
           path: 'TicTacToe',
           component: TicTacToeComponent,
+          canActivate: [AngularFireAuthGuard],
+          data: {'authRedirect': true, authGuardPipe: redirectUnauthorizedToLogin}
+        },
+        {
+          path: 'firestoreTest',
+          component: FirestoreTestComponent,
           canActivate: [AngularFireAuthGuard],
           data: {'authRedirect': true, authGuardPipe: redirectUnauthorizedToLogin}
         }

@@ -83,6 +83,7 @@ import { FirebaseTestComponent } from './componentes/firebase-test/firebase-test
 import {AuthenticationService} from './servicios/authentication.service';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MenuCardPrincipalComponent } from './componentes/menu-card-principal/menu-card-principal.component';
+import { FirestoreTestComponent } from './componentes/firestore-test/firestore-test.component';
 
 
 @NgModule({
@@ -115,6 +116,7 @@ import { MenuCardPrincipalComponent } from './componentes/menu-card-principal/me
     RegisterDialogComponent,
     FirebaseTestComponent,
     MenuCardPrincipalComponent,
+    FirestoreTestComponent,
   ],
   imports: [
     BrowserModule,

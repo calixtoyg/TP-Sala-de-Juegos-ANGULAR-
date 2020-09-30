@@ -21,6 +21,7 @@ export class AuthenticationService {
   private setSession(value: UserCredential) {
     this.authenticated = true;
     console.log(`logging: ${value}`);
+    localStorage.setItem('email', value.user.email);
     value.user.getIdTokenResult().then(tokenInfo => {
       console.log(`log succesful: ${tokenInfo}`);
       localStorage.setItem('id_token', tokenInfo.token);
@@ -43,7 +44,13 @@ export class AuthenticationService {
   }
 
   public login(email, password) {
-    return this.afAuth.signInWithEmailAndPassword(email, password);
+    return new Promise<boolean>(((resolve, reject) => this.afAuth.signInWithEmailAndPassword(email, password)
+      .then(value => {
+        this.setSession(value);
+        resolve(true);
+      })
+      .catch(error => reject(error)))
+    );
   }
 
   public async logout() {

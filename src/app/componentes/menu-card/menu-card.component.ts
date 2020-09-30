@@ -27,6 +27,10 @@ export class MenuCardComponent implements OnInit {
       case 'TicTacToe':
           this.router.navigate(['/Juegos/TicTacToe']);
         break;
+      case 'firestoreTest':
+          this.router.navigate(['/Juegos/firestoreTest']);
+        break;
+
     }
   }
 }

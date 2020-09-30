@@ -3,6 +3,9 @@ import {JuegoAgilidad} from '../../clases/juego-agilidad';
 
 import {Subscription} from 'rxjs';
 import {TimerObservable} from 'rxjs/observable/TimerObservable';
+import {Juego} from '../../clases/juego';
+import {AuthenticationService} from '../../servicios/authentication.service';
+import {JuegoImpl} from '../../clases/juego-impl';
 
 @Component({
   selector: 'app-agilidad-aritmetica',
@@ -16,17 +19,15 @@ export class AgilidadAritmeticaComponent implements OnInit {
   ocultarVerificar: boolean;
   Tiempo: number;
   repetidor: any;
-  gano: boolean;
   private subscription: Subscription;
 
   ngOnInit() {
   }
 
-  constructor() {
+  constructor(public afAuth: AuthenticationService) {
     this.ocultarVerificar = true;
     this.Tiempo = 5;
     this.nuevoJuego = new JuegoAgilidad();
-    this.nuevoJuego.segundoNumeroIngresado = 10;
     console.info(this.nuevoJuego);
   }
 
@@ -40,6 +41,7 @@ export class AgilidadAritmeticaComponent implements OnInit {
         clearInterval(this.repetidor);
         alert(this.verificar());
         this.ocultarVerificar = true;
+        this.enviarJuego.emit(new JuegoImpl(localStorage.getItem('email'), this.nuevoJuego.gano, localStorage.getItem('email'), 'Adivina el número'));
         this.nuevoJuego = new JuegoAgilidad();
         this.Tiempo = 2;
       }
@@ -52,17 +54,17 @@ export class AgilidadAritmeticaComponent implements OnInit {
     this.ocultarVerificar = false;
     switch (this.nuevoJuego.operator) {
       case '/':
-        this.gano = Number((this.nuevoJuego.numeroIngresado / this.nuevoJuego.segundoNumeroIngresado).toFixed(2)) === Number(this.nuevoJuego.respuesta.toFixed(2));
-        return this.gano;
+        this.nuevoJuego.gano = Number((this.nuevoJuego.numeroIngresado / this.nuevoJuego.segundoNumeroIngresado).toFixed(2)) === Number(this.nuevoJuego.respuesta.toFixed(2));
+        return this.nuevoJuego.gano;
       case '*':
-        this.gano = this.nuevoJuego.numeroIngresado * this.nuevoJuego.segundoNumeroIngresado === Number(this.nuevoJuego.respuesta);
-        return this.gano;
+        this.nuevoJuego.gano = this.nuevoJuego.numeroIngresado * this.nuevoJuego.segundoNumeroIngresado === Number(this.nuevoJuego.respuesta);
+        return this.nuevoJuego.gano;
       case '+':
-        this.gano = this.nuevoJuego.numeroIngresado + this.nuevoJuego.segundoNumeroIngresado === Number(this.nuevoJuego.respuesta);
-        return this.gano;
+        this.nuevoJuego.gano = this.nuevoJuego.numeroIngresado + this.nuevoJuego.segundoNumeroIngresado === Number(this.nuevoJuego.respuesta);
+        return this.nuevoJuego.gano;
       case '-':
-        this.gano = this.nuevoJuego.numeroIngresado - this.nuevoJuego.segundoNumeroIngresado === Number(this.nuevoJuego.respuesta);
-        return this.gano;
+        this.nuevoJuego.gano = this.nuevoJuego.numeroIngresado - this.nuevoJuego.segundoNumeroIngresado === Number(this.nuevoJuego.respuesta);
+        return this.nuevoJuego.gano;
     }
     clearInterval(this.repetidor);
 

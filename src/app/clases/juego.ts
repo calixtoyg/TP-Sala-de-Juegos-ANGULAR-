@@ -2,8 +2,9 @@ export abstract class Juego {
   public nombre = 'Sin Nombre';
   public jugador: string;
   public gano = false;
+  public gameType: string;
 
-  constructor(nombre?: string, gano?: boolean, jugador?: string) {
+  constructor(nombre?: string, gano?: boolean, jugador?: string, gameType?: string) {
     if (nombre) {
       this.nombre = nombre;
     }
@@ -13,6 +14,9 @@ export abstract class Juego {
     }
     if (jugador) {
       this.jugador = jugador;
+    }
+    if (gameType) {
+      this.gameType = gameType;
     }
     else {
       this.jugador = 'natalia natalia';
