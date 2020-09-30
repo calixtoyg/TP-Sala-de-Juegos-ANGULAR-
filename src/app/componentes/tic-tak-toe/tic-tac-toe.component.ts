@@ -16,12 +16,8 @@ import {Player} from '../../clases/player';
 export class TicTacToeComponent implements OnInit {
   game: TicTacToe;
 
-  constructor(iconRegistry: MatIconRegistry, sanitizer: DomSanitizer, public dialog: MatDialog) {
-    // constructor(iconRegistry: MatIconRegistry, sanitizer: DomSanitizer) {
+  constructor(public dialog: MatDialog) {
     this.game = new TicTacToe();
-    iconRegistry.addSvgIcon(
-      'thumbs-up',
-      sanitizer.bypassSecurityTrustResourceUrl('assets/img/examples/thumbup-icon.svg'));
     this.dialog.open(SimpleDialogComponent, {
       data: {title: '¿Que jugador juego?', body: `Juega el jugador Nº${this.game.whoPlays + 1}`}
     });

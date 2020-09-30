@@ -84,7 +84,8 @@ import {AuthenticationService} from './servicios/authentication.service';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MenuCardPrincipalComponent } from './componentes/menu-card-principal/menu-card-principal.component';
 import { FirestoreTestComponent } from './componentes/firestore-test/firestore-test.component';
-
+import { SpinnerComponent } from './componentes/spinner/spinner.component';
+import {JuegoImpl} from './clases/juego-impl';
 
 @NgModule({
   declarations: [
@@ -117,6 +118,7 @@ import { FirestoreTestComponent } from './componentes/firestore-test/firestore-t
     FirebaseTestComponent,
     MenuCardPrincipalComponent,
     FirestoreTestComponent,
+    SpinnerComponent,
   ],
   imports: [
     BrowserModule,

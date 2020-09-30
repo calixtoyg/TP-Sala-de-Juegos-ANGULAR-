@@ -1,8 +1,10 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <!--app-menu></app-menu-->
 <!-- index.html -->
-
-
+<div *ngIf="loadingSpinner">
+<app-spinner overlay="true">
+</app-spinner>
+</div>
 <form name="juego">
 <ul>
    <li>

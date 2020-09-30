@@ -39,6 +39,7 @@ const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['/login']);
 const MiRuteo = [
   {path: 'Jugadores', component: JugadoresListadoComponent},
   {path: '', component: PrincipalComponent},
+  {path: 'home', component: PrincipalComponent},
   {path: 'login', component: LoginComponent},
   {path: 'Mapa', component: MapaDeGoogleComponent},
   {path: 'QuienSoy', component: QuienSoyComponent},

@@ -21,6 +21,10 @@
     </div>
   </div>
 </div-->
+<div *ngIf="loadingSpinner">
+  <app-spinner overlay="true">
+  </app-spinner>
+</div>
 <div class="container">
   <div class="jumbotron" style="padding:50px;">
     <form action="return true;">
@@ -68,9 +72,6 @@
 <!--          </div>-->
           <label><b>Clave</b></label>
           <input formControlName="password" type="password" placeholder="Clave" name="psw" [(ngModel)]="user.password">
-
-          <button *ngIf="logeando" (click)="MoverBarraDeProgreso()">Ingresar</button>
-
 <!--          <div *ngIf="!logeando" class="progress">-->
 <!--            <div class="progress-bar progress-bar-info progress-bar-striped active" [class]="clase" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"-->
 <!--                 [style.width]="ProgresoDeAncho">-->

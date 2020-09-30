@@ -6,6 +6,7 @@ import {TimerObservable} from 'rxjs/observable/TimerObservable';
 import {Juego} from '../../clases/juego';
 import {AuthenticationService} from '../../servicios/authentication.service';
 import {JuegoImpl} from '../../clases/juego-impl';
+import {JuegoServiceService} from '../../servicios/juego-service.service';
 
 @Component({
   selector: 'app-agilidad-aritmetica',
@@ -17,6 +18,7 @@ export class AgilidadAritmeticaComponent implements OnInit {
   enviarJuego: EventEmitter<any> = new EventEmitter<any>();
   nuevoJuego: JuegoAgilidad;
   ocultarVerificar: boolean;
+  loadingSpinner: boolean;
   Tiempo: number;
   repetidor: any;
   private subscription: Subscription;
@@ -24,7 +26,7 @@ export class AgilidadAritmeticaComponent implements OnInit {
   ngOnInit() {
   }
 
-  constructor(public afAuth: AuthenticationService) {
+  constructor(public afAuth: AuthenticationService, public juegosService: JuegoServiceService) {
     this.ocultarVerificar = true;
     this.Tiempo = 5;
     this.nuevoJuego = new JuegoAgilidad();
@@ -33,21 +35,17 @@ export class AgilidadAritmeticaComponent implements OnInit {
 
   NuevoJuego() {
     this.ocultarVerificar = false;
-    this.repetidor = setInterval(() => {
-
-      this.Tiempo--;
-      console.log('llego', this.Tiempo);
-      if (this.Tiempo == 0) {
-        clearInterval(this.repetidor);
-        alert(this.verificar());
-        this.ocultarVerificar = true;
-        this.enviarJuego.emit(new JuegoImpl(localStorage.getItem('email'), this.nuevoJuego.gano, localStorage.getItem('email'), 'Adivina el número'));
-        this.nuevoJuego = new JuegoAgilidad();
-        this.Tiempo = 2;
-      }
-    }, 900);
-
-
+    this.loadingSpinner = true;
+    this.verificar();
+    const finishedGame = new JuegoImpl(localStorage.getItem('email'), this.nuevoJuego.gano, localStorage.getItem('email'), 'Adivina el número');
+    this.enviarJuego.emit(finishedGame);
+    this.juegosService.save(finishedGame).then(value => {
+      this.loadingSpinner = false;
+    }).catch(error => {
+      this.loadingSpinner = false;
+    });
+    this.ocultarVerificar = true;
+    this.nuevoJuego = new JuegoAgilidad();
   }
 
   verificar() {
