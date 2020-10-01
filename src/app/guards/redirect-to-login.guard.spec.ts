@@ -1,6 +1,6 @@
-import { TestBed } from '@angular/core/testing';
+import {TestBed} from '@angular/core/testing';
 
-import { RedirectToLoginGuard } from './redirect-to-login.guard';
+import {RedirectToLoginGuard} from './redirect-to-login.guard';
 
 describe('RedirectToLoginGuard', () => {
   let guard: RedirectToLoginGuard;

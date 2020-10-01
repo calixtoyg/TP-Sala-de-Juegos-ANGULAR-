@@ -1,6 +1,6 @@
-import { TestBed } from '@angular/core/testing';
+import {TestBed} from '@angular/core/testing';
 
-import { RoutingToLoginService } from './routing-to-login.service';
+import {RoutingToLoginService} from './routing-to-login.service';
 
 describe('RoutingToLoginService', () => {
   let service: RoutingToLoginService;

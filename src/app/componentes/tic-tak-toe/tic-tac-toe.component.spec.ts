@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { TicTacToeComponent } from './tic-tac-toe.component';
+import {TicTacToeComponent} from './tic-tac-toe.component';
 
 describe('TicTakToeComponent', () => {
   let component: TicTacToeComponent;

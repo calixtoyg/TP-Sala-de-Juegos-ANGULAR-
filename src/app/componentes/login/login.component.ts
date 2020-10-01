@@ -1,11 +1,9 @@
-import {Component, OnInit} from '@angular/core';
-import {Router, ActivatedRoute, ParamMap} from '@angular/router';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {ActivatedRoute, Router} from '@angular/router';
 
 import {Subscription} from 'rxjs';
-import {TimerObservable} from 'rxjs/observable/TimerObservable';
 import {AuthenticationService} from '../../servicios/authentication.service';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
-import {AngularFireAuthGuard} from '@angular/fire/auth-guard';
 
 interface User {
   email: string;
@@ -18,6 +16,7 @@ interface User {
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+  @Output() public loggedIn: EventEmitter<boolean>;
   public userForm: FormGroup;
   public user: User;
   private subscription: Subscription;
@@ -91,8 +90,10 @@ export class LoginComponent implements OnInit {
       this.loadingSpinner = true;
       this.authenticationService.login(this.user.email, this.user.password).then(value => {
         this.loadingSpinner = false;
+        this.loggedIn.emit(true);
         this.router.navigate(['']);
       }).catch(error => {
+        this.loggedIn.emit(false);
         this.loadingSpinner = false;
       });
     }

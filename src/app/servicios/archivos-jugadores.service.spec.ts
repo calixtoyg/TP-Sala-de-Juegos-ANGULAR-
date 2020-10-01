@@ -1,6 +1,6 @@
-import { TestBed, inject } from '@angular/core/testing';
+import {inject, TestBed} from '@angular/core/testing';
 
-import { ArchivosJugadoresService } from './archivos-jugadores.service';
+import {ArchivosJugadoresService} from './archivos-jugadores.service';
 
 describe('ArchivosJugadoresService', () => {
   beforeEach(() => {

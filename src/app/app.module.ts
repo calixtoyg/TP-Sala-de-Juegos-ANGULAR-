@@ -1,17 +1,13 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
-import {FormsModule} from '@angular/forms';
-import {  ReactiveFormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {AppComponent} from './app.component';
 import {AdivinaElNumeroComponent} from './componentes/adivina-el-numero/adivina-el-numero.component';
 import {ListadoDeResultadosComponent} from './componentes/listado-de-resultados/listado-de-resultados.component';
 import {LoginComponent} from './componentes/login/login.component';
 import {HttpClientModule} from '@angular/common/http';
-//  import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
-
 // import { AccordionModule } from 'ngx-bootstrap';
 // agrego las clases para utilizar ruteo
-import {RouterModule, Routes} from '@angular/router';
 
 import {MiHttpService} from './servicios/mi-http/mi-http.service';
 import {PaisesService} from './servicios/paises.service';
@@ -58,9 +54,9 @@ import {TicTacToeComponent} from './componentes/tic-tak-toe/tic-tac-toe.componen
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatIconModule} from '@angular/material/icon';
 import {SimpleDialogComponent} from './componentes/who-plays-dialog/simple-dialog.component';
-import {MAT_DIALOG_DEFAULT_OPTIONS, MatDialog, MatDialogModule} from '@angular/material/dialog';
+import {MAT_DIALOG_DEFAULT_OPTIONS, MatDialogModule} from '@angular/material/dialog';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {MatButton, MatButtonModule} from '@angular/material/button';
+import {MatButtonModule} from '@angular/material/button';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatListModule} from '@angular/material/list';
 import {MatSidenavModule} from '@angular/material/sidenav';
@@ -72,20 +68,22 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatTableModule} from '@angular/material/table';
 import {MatSortModule} from '@angular/material/sort';
 import {MatSelectModule} from '@angular/material/select';
-import {MatFormField, MatFormFieldModule} from '@angular/material/form-field';
-import { RegisterDialogComponent } from './componentes/register-dialog/register-dialog.component';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {RegisterDialogComponent} from './componentes/register-dialog/register-dialog.component';
 import {MatInputModule} from '@angular/material/input';
 import {AngularFireModule} from '@angular/fire';
 import {environment} from '../environments/environment';
-import { AngularFireAnalyticsModule } from '@angular/fire/analytics';
-import { AngularFirestoreModule } from '@angular/fire/firestore';
-import { FirebaseTestComponent } from './componentes/firebase-test/firebase-test.component';
+import {AngularFireAnalyticsModule} from '@angular/fire/analytics';
+import {AngularFirestoreModule} from '@angular/fire/firestore';
+import {FirebaseTestComponent} from './componentes/firebase-test/firebase-test.component';
 import {AuthenticationService} from './servicios/authentication.service';
-import { FlexLayoutModule } from '@angular/flex-layout';
-import { MenuCardPrincipalComponent } from './componentes/menu-card-principal/menu-card-principal.component';
-import { FirestoreTestComponent } from './componentes/firestore-test/firestore-test.component';
-import { SpinnerComponent } from './componentes/spinner/spinner.component';
-import {JuegoImpl} from './clases/juego-impl';
+import {FlexLayoutModule} from '@angular/flex-layout';
+import {MenuCardPrincipalComponent} from './componentes/menu-card-principal/menu-card-principal.component';
+import {FirestoreTestComponent} from './componentes/firestore-test/firestore-test.component';
+import {SpinnerComponent} from './componentes/spinner/spinner.component';
+import {NameFormComponent} from './componentes/name-form/name-form.component';
+
+//  import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -119,6 +117,7 @@ import {JuegoImpl} from './clases/juego-impl';
     MenuCardPrincipalComponent,
     FirestoreTestComponent,
     SpinnerComponent,
+    NameFormComponent,
   ],
   imports: [
     BrowserModule,

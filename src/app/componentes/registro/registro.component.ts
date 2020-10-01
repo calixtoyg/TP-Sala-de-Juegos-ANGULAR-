@@ -1,12 +1,7 @@
-import {Component, Injectable, OnInit} from '@angular/core';
-import {Router, ActivatedRoute, ParamMap} from '@angular/router';
-import {DomSanitizer} from '@angular/platform-browser';
+import {Component, OnInit} from '@angular/core';
 import {MatDialog, MatDialogRef} from '@angular/material/dialog';
 import {RegisterDialogComponent} from '../register-dialog/register-dialog.component';
 import {AuthenticationService} from '../../servicios/authentication.service';
-import {Observable} from 'rxjs';
-import UserCredential = firebase.auth.UserCredential;
-import {map} from 'rxjs/operators';
 // para poder hacer las validaciones
 // import { Validators, FormBuilder, FormControl, FormGroup} from '@angular/forms';
 @Component({

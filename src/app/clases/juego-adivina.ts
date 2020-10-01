@@ -1,4 +1,4 @@
-import { Juego } from '../clases/juego';
+import {Juego} from '../clases/juego';
 
 export class JuegoAdivina extends  Juego {
     numeroSecreto = 0;

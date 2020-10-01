@@ -25,8 +25,11 @@
     <button *ngIf="!loggedIn" fxFlexOffset="5" mat-button (click)="login()">
       <mat-icon>login</mat-icon>
     </button>
+    <div>
+    </div>
     <button *ngIf="loggedIn" fxFlex="20"  mat-button (click)="logOut()">
       <mat-icon>account_circle</mat-icon>
+
     </button>
 
   </div>

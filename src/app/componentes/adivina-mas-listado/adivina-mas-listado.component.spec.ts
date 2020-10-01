@@ -1,6 +1,6 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { AdivinaMasListadoComponent } from './adivina-mas-listado.component';
+import {AdivinaMasListadoComponent} from './adivina-mas-listado.component';
 
 describe('AdivinaMasListadoComponent', () => {
   let component: AdivinaMasListadoComponent;

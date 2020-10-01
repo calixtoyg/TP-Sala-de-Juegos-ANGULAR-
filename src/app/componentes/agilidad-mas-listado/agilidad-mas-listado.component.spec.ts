@@ -1,6 +1,6 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { AgilidadMasListadoComponent } from './agilidad-mas-listado.component';
+import {AgilidadMasListadoComponent} from './agilidad-mas-listado.component';
 
 describe('AgilidadMasListadoComponent', () => {
   let component: AgilidadMasListadoComponent;

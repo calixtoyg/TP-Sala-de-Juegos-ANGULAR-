@@ -9,8 +9,8 @@ import {AuthenticationService} from './servicios/authentication.service';
 })
 export class AppComponent {
   loggedIn: boolean;
-  constructor(private router: Router, private auth: AuthenticationService) {
-    this.loggedIn = false;
+  constructor(private router: Router, public auth: AuthenticationService) {
+    this.loggedIn = auth.isLoggedIn();
   }
 
   register() {

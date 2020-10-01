@@ -1,5 +1,6 @@
-
-import { Component, OnInit , Input, EventEmitter} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {JuegoServiceService} from '../../servicios/juego-service.service';
+import {MatTableDataSource} from '@angular/material/table';
 
 @Component({
   selector: 'app-listado-de-resultados',
@@ -7,19 +8,27 @@ import { Component, OnInit , Input, EventEmitter} from '@angular/core';
   styleUrls: ['./listado-de-resultados.component.css']
 })
 export class ListadoDeResultadosComponent implements OnInit {
- @Input()
- listado: Array<any>;
+
+  public tableHeaders: Array<string>;
+  public dataSource: MatTableDataSource<any>;
+  loadingSpinner: boolean;
 
 
-  constructor() {
-   }
+  constructor(public juegosService: JuegoServiceService) {
+  }
 
   ngOnInit() {
-
+    this.loadingSpinner = true;
+    this.juegosService.get().subscribe(value => {
+      this.loadingSpinner = false;
+      this.dataSource = new MatTableDataSource(value);
+      this.tableHeaders = Object.keys(value[0]);
+    });
   }
 
-  ver() {
-    console.info(this.listado);
-  }
 
+  applyFilter(event: KeyboardEvent) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
 }

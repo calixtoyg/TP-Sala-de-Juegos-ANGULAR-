@@ -1,6 +1,6 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { AnagramaComponent } from './anagrama.component';
+import {AnagramaComponent} from './anagrama.component';
 
 describe('AnagramaComponent', () => {
   let component: AnagramaComponent;

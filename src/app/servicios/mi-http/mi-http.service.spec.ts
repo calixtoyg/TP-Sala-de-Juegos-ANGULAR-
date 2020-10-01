@@ -1,6 +1,6 @@
-import { TestBed, inject } from '@angular/core/testing';
+import {inject, TestBed} from '@angular/core/testing';
 
-import { MiHttpService } from './mi-http.service';
+import {MiHttpService} from './mi-http.service';
 
 describe('MiHttpService', () => {
   beforeEach(() => {

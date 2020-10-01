@@ -1,9 +1,7 @@
-import {Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {JuegoAgilidad} from '../../clases/juego-agilidad';
 
 import {Subscription} from 'rxjs';
-import {TimerObservable} from 'rxjs/observable/TimerObservable';
-import {Juego} from '../../clases/juego';
 import {AuthenticationService} from '../../servicios/authentication.service';
 import {JuegoImpl} from '../../clases/juego-impl';
 import {JuegoServiceService} from '../../servicios/juego-service.service';

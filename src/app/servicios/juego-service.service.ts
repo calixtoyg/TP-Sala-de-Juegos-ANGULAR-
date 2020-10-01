@@ -2,7 +2,6 @@ import {Injectable} from '@angular/core';
 import {Juego} from '../clases/juego';
 import {JuegoAdivina} from '../clases/juego-adivina';
 import {MiHttpService} from './mi-http/mi-http.service';
-import {AngularFireStorage} from '@angular/fire/storage';
 import {JuegoImpl} from '../clases/juego-impl';
 import {AngularFirestore} from '@angular/fire/firestore';
 
@@ -69,6 +68,10 @@ export class JuegoServiceService {
 
   public save(game: JuegoImpl) {
     return this.db.collection('games').add(JSON.parse(JSON.stringify(game)));
+  }
+
+  public get() {
+    return this.db.collection('games').valueChanges();
   }
 
 

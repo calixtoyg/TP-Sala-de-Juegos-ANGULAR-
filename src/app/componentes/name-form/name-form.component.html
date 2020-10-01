@@ -1,0 +1,30 @@
+<h2 mat-dialog-title>Ingrese nombre de jugadores</h2>
+
+<mat-dialog-content >
+
+  <!--  <mat-grid-list cols="1" rowHeight="2:1">-->
+  <!--    <mat-grid-tile>-->
+  <p>
+    <mat-form-field appearance="legacy">
+      <mat-label>Nombre jugador uno:</mat-label>
+      <input matInput [(ngModel)]="data.playerOne" placeholder="Ingrese nombre del primer jugador">
+    </mat-form-field>
+  </p>
+  <!--    </mat-grid-tile>-->
+  <!--    <mat-grid-tile>-->
+  <p>
+    <mat-form-field appearance="standard">
+      <mat-label>Nombre jugador dos:</mat-label>
+      <input matInput [(ngModel)]="data.playerTwo" placeholder="Ingrese nombre del segundo jugador" type="text">
+    </mat-form-field>
+  </p>
+  <!--    </mat-grid-tile>-->
+  <!--  </mat-grid-list>-->
+
+
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button mat-raised-button color="primary" (click)="dialogRef.close({playerOne: data.playerOne,playerTwo: data.playerTwo})">Aceptar</button>
+</mat-dialog-actions>
+

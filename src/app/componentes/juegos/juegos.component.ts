@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
@@ -8,6 +8,7 @@ import {ActivatedRoute, Router} from '@angular/router';
 })
 export class JuegosComponent implements OnInit {
 
+  public loggedIn: EventEmitter<boolean>;
   constructor(private route: ActivatedRoute,
               private router: Router) { }
 

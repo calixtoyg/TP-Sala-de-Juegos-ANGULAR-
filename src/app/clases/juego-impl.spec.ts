@@ -1,4 +1,4 @@
-import { JuegoImpl } from './juego-impl';
+import {JuegoImpl} from './juego-impl';
 
 describe('JuegoImpl', () => {
   it('should create an instance', () => {

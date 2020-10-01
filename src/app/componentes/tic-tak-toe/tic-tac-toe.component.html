@@ -1,3 +1,7 @@
+<div *ngIf="loadingSpinner">
+  <app-spinner overlay="true">
+  </app-spinner>
+</div>
 <mat-grid-list cols="3" rowHeight="3:1" [gutterSize]="'0px'">
   <div *ngFor="let tile of game.board; index as i" >
     <mat-grid-tile (click)="onTileClick(i)"><mat-icon class="mat-icon-tic-tac-toe" aria-hidden="false" aria-label="Example home icon">{{tile}}</mat-icon></mat-grid-tile>

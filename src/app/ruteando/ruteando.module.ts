@@ -1,6 +1,6 @@
 import {NgModule} from '@angular/core';
 // importo del module principal
-import {ActivatedRouteSnapshot, RouterModule} from '@angular/router';
+import {RouterModule} from '@angular/router';
 import {AdivinaElNumeroComponent} from '../componentes/adivina-el-numero/adivina-el-numero.component';
 import {LoginComponent} from '../componentes/login/login.component';
 import {ErrorComponent} from '../componentes/error/error.component';
@@ -17,11 +17,8 @@ import {MapaDeGoogleComponent} from '../componentes/mapa-de-google/mapa-de-googl
 import {JugadoresListadoComponent} from '../componentes/jugadores-listado/jugadores-listado.component';
 import {TicTacToeComponent} from '../componentes/tic-tak-toe/tic-tac-toe.component';
 import {FirebaseTestComponent} from '../componentes/firebase-test/firebase-test.component';
-import {AngularFireAuthGuard, AuthPipeGenerator, idTokenResult, loggedIn, redirectUnauthorizedTo} from '@angular/fire/auth-guard';
+import {AngularFireAuthGuard, redirectUnauthorizedTo} from '@angular/fire/auth-guard';
 import {JuegosComponent} from '../componentes/juegos/juegos.component';
-import {RoutingToLoginService} from '../servicios/routing-to-login.service';
-import {map, take} from 'rxjs/operators';
-import {RedirectToLoginGuard} from '../guards/redirect-to-login.guard';
 import {FirestoreTestComponent} from '../componentes/firestore-test/firestore-test.component';
 
 const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['/login']);

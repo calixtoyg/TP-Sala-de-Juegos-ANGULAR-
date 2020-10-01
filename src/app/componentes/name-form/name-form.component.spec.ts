@@ -1,20 +1,20 @@
 import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import {FirebaseTestComponent} from './firebase-test.component';
+import {NameFormComponent} from './name-form.component';
 
-describe('FirebaseTestComponent', () => {
-  let component: FirebaseTestComponent;
-  let fixture: ComponentFixture<FirebaseTestComponent>;
+describe('NameFormComponent', () => {
+  let component: NameFormComponent;
+  let fixture: ComponentFixture<NameFormComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ FirebaseTestComponent ]
+      declarations: [ NameFormComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(FirebaseTestComponent);
+    fixture = TestBed.createComponent(NameFormComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

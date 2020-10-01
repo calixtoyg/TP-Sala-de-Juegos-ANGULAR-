@@ -1,6 +1,5 @@
-
-import { Component, OnInit , Input, Output, EventEmitter} from '@angular/core';
-import { JuegoAdivina } from '../../clases/juego-adivina';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {JuegoAdivina} from '../../clases/juego-adivina';
 
 @Component({
   selector: 'app-adivina-el-numero',

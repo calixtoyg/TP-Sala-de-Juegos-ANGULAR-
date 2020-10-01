@@ -1,12 +1,11 @@
 import {AngularFireAuth} from '@angular/fire/auth';
 import 'rxjs/add/observable/fromPromise';
-import {Observable} from 'rxjs/Observable';
-import UserCredential = firebase.auth.UserCredential;
 import * as moment from 'moment';
 import {Subject} from 'rxjs';
 import {User} from 'firebase';
 import {Router} from '@angular/router';
 import {Injectable} from '@angular/core';
+import UserCredential = firebase.auth.UserCredential;
 
 @Injectable({
   providedIn: 'root'
@@ -71,8 +70,7 @@ export class AuthenticationService {
 
   getExpiration() {
     const expiration = localStorage.getItem('expires_at');
-    const expiresAt = JSON.parse(expiration);
-    return moment(expiresAt);
+    return moment(expiration);
   }
 
   checkAuthStatus() {

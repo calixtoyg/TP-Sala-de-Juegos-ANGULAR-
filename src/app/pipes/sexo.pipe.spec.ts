@@ -1,4 +1,4 @@
-import { SexoPipe } from './sexo.pipe';
+import {SexoPipe} from './sexo.pipe';
 
 describe('SexoPipe', () => {
   it('create an instance', () => {

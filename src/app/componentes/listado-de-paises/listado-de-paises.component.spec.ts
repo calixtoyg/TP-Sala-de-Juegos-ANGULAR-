@@ -1,6 +1,6 @@
-import {async, ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
+import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
 
-import { ListadoDePaisesComponent } from './listado-de-paises.component';
+import {ListadoDePaisesComponent} from './listado-de-paises.component';
 
 describe('ListadoDePaisesComponent', () => {
   let component: ListadoDePaisesComponent;
