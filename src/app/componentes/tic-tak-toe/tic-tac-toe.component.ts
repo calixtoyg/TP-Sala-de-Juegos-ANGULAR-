@@ -19,6 +19,7 @@ export class TicTacToeComponent implements OnInit {
   private playerNames = [];
   private readonly gameType = 'Tic Tac Toe';
   public loadingSpinner: boolean;
+
   constructor(public dialog: MatDialog, public juegosService: JuegoServiceService) {
     this.game = new TicTacToe();
     this.dialog.open(SimpleDialogComponent, {
@@ -55,7 +56,6 @@ export class TicTacToeComponent implements OnInit {
   }
 
 
-
   private checkBoard(board: Array<TicTacToeType>) {
     const arrayOfRows = this.separateRowsIntoArrays(board);
     const arrayOfColumns = this.separateColumnsIntoArrays(arrayOfRows);
@@ -84,14 +84,16 @@ export class TicTacToeComponent implements OnInit {
       });
     }
     if (!isThereAWinner && board.every(value => value === TicTacToeType.CROSS || value === TicTacToeType.CIRCLE)) {
+      this.juegosService.save(new JuegoImpl(this.playerNames[this.game.whoPlays], false, localStorage.getItem('email'), this.gameType)).then(value1 => {
+        console.log(value1);
+      }).catch(error => {
+        console.log(error);
+      });
       const rebootGameDialog = this.dialog.open(SimpleDialogComponent, {
         data: {title: 'No hay ganadores', body: 'Reincia el juego para continuar'}
       });
       rebootGameDialog.afterClosed().subscribe(value => {
-        if (value) {
-          this.juegosService.save(new JuegoImpl(this.playerNames[this.game.whoPlays], false, localStorage.getItem('email'), this.gameType));
-          window.location.reload();
-        }
+        window.location.reload();
       });
     }
     // console.log(endResult);

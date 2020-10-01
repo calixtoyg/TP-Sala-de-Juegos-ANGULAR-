@@ -4,6 +4,9 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {Subscription} from 'rxjs';
 import {AuthenticationService} from '../../servicios/authentication.service';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
+import {MatDialog} from '@angular/material/dialog';
+import {ForgotPasswordDialogComponent} from '../forgot-password-dialog/forgot-password-dialog.component';
+import {SimpleDialogComponent} from '../who-plays-dialog/simple-dialog.component';
 
 interface User {
   email: string;
@@ -33,7 +36,8 @@ export class LoginComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private authenticationService: AuthenticationService) {
+    private authenticationService: AuthenticationService,
+    public dialog: MatDialog) {
 
   }
 
@@ -78,11 +82,21 @@ export class LoginComponent implements OnInit {
   // }
   forgotPassword() {
     this.loadingSpinner = true;
-    this.authenticationService.forgotPassword(this.user.email).then(value => {
+    this.dialog.open(ForgotPasswordDialogComponent, {width: '300px'}).afterClosed().subscribe(value => {
       this.loadingSpinner = false;
-    }).catch(error => {
-      this.loadingSpinner = false;
+      if (value) {
+        this.loadingSpinner = true;
+        this.authenticationService.forgotPassword(value).then(() => {
+          this.loadingSpinner = false;
+          this.dialog.open(SimpleDialogComponent, {data: {body: 'Email enviado con éxito', title: 'Email'}});
+        }).catch(error => {
+          console.log(error);
+          this.dialog.open(SimpleDialogComponent, {data: {body: 'Hubo algun problema al intentar recuperar el mail', title: 'Email'}});
+          this.loadingSpinner = false;
+        });
+      }
     });
+
   }
 
   async submit() {

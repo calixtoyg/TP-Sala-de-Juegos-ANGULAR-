@@ -22,6 +22,8 @@ export class RegistroComponent implements OnInit {
    formRegistro:FormGroup=this.miConstructor.group({
      usuario:this.email
    });*/
+  public loadingSpinner: boolean;
+
   constructor(public dialog: MatDialog, private auth: AuthenticationService) {
   }
 
@@ -42,19 +44,24 @@ export class RegistroComponent implements OnInit {
   }
 
   save(email: string, password: string) {
-    this.authentication = this.auth.signUp(email, password);
-    this.authentication.subscribe(value => {
-      console.log(value);
+    this.loadingSpinner = true;
+    this.auth.signUp(email, password).then(value => {
+      this.loadingSpinner = false;
     }, error => {
-      console.log(error);
+      this.loadingSpinner = false;
     });
   }
 
   login(email: string, password: string) {
-    this.authentication = this.auth.login(email, password);
+    this.loadingSpinner = true;
+    this.authentication = this.auth.login(email, password).then(value => {
+      this.loadingSpinner = false;
+    }).catch(error => {
+      this.loadingSpinner = false;
+    });
   }
 
   logout() {
-    this.auth.logout();
+    this.auth.logout().then();
   }
 }

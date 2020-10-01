@@ -82,6 +82,7 @@ import {MenuCardPrincipalComponent} from './componentes/menu-card-principal/menu
 import {FirestoreTestComponent} from './componentes/firestore-test/firestore-test.component';
 import {SpinnerComponent} from './componentes/spinner/spinner.component';
 import {NameFormComponent} from './componentes/name-form/name-form.component';
+import { ForgotPasswordDialogComponent } from './componentes/forgot-password-dialog/forgot-password-dialog.component';
 
 //  import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
@@ -118,6 +119,7 @@ import {NameFormComponent} from './componentes/name-form/name-form.component';
     FirestoreTestComponent,
     SpinnerComponent,
     NameFormComponent,
+    ForgotPasswordDialogComponent,
   ],
   imports: [
     BrowserModule,
