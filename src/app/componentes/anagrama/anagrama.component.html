@@ -1,3 +1,21 @@
-<p>
-  anagrama works!
-</p>
+<div class="container">
+  <div
+    fxLayout="column"
+    fxLayout.xs="column"
+    fxLayoutAlign="center center"
+    fxLayoutGap="15px"
+    fxLayoutGap.xs="0">
+    <h3 fxFlex="100">Adivine la palabra</h3>
+    <mat-form-field fxFlex="100" appearance="legacy">
+      <mat-label>Que palabra se puede formar con estas letras?</mat-label>
+      <input matInput [(ngModel)]="randomizedWord" readonly>
+    </mat-form-field>
+    <mat-form-field fxFlex="100" appearance="legacy">
+      <mat-label>Ingrese la palabra:</mat-label>
+      <input matInput [(ngModel)]="palabra" placeholder="Ingrese la palabra">
+    </mat-form-field>
+    <button fxFlex="100" mat-raised-button color="primary" (click)="guessWord()">Adivina palabra</button>
+
+
+  </div>
+</div>

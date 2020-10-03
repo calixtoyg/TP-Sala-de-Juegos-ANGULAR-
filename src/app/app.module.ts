@@ -6,9 +6,6 @@ import {AdivinaElNumeroComponent} from './componentes/adivina-el-numero/adivina-
 import {ListadoDeResultadosComponent} from './componentes/listado-de-resultados/listado-de-resultados.component';
 import {LoginComponent} from './componentes/login/login.component';
 import {HttpClientModule} from '@angular/common/http';
-// import { AccordionModule } from 'ngx-bootstrap';
-// agrego las clases para utilizar ruteo
-
 import {MiHttpService} from './servicios/mi-http/mi-http.service';
 import {PaisesService} from './servicios/paises.service';
 
@@ -35,6 +32,7 @@ const MiRuteo = [{path: 'error' , component: ErrorComponent},
 
 {path: '**' , component: ErrorComponent} ];
 */
+
 import {JugadoresListadoComponent} from './componentes/jugadores-listado/jugadores-listado.component';
 
 import {JuegoServiceService} from './servicios/juego-service.service';
@@ -82,7 +80,10 @@ import {MenuCardPrincipalComponent} from './componentes/menu-card-principal/menu
 import {FirestoreTestComponent} from './componentes/firestore-test/firestore-test.component';
 import {SpinnerComponent} from './componentes/spinner/spinner.component';
 import {NameFormComponent} from './componentes/name-form/name-form.component';
-import { ForgotPasswordDialogComponent } from './componentes/forgot-password-dialog/forgot-password-dialog.component';
+import {ForgotPasswordDialogComponent} from './componentes/forgot-password-dialog/forgot-password-dialog.component';
+import {LineChartComponent} from './componentes/line-chart/line-chart.component';
+// import { AccordionModule } from 'ngx-bootstrap';
+// agrego las clases para utilizar ruteo
 
 //  import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
@@ -120,6 +121,8 @@ import { ForgotPasswordDialogComponent } from './componentes/forgot-password-dia
     SpinnerComponent,
     NameFormComponent,
     ForgotPasswordDialogComponent,
+    LineChartComponent,
+    MovieComponent,
   ],
   imports: [
     BrowserModule,

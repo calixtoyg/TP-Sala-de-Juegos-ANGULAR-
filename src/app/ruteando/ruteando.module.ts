@@ -20,6 +20,7 @@ import {FirebaseTestComponent} from '../componentes/firebase-test/firebase-test.
 import {AngularFireAuthGuard, redirectUnauthorizedTo} from '@angular/fire/auth-guard';
 import {JuegosComponent} from '../componentes/juegos/juegos.component';
 import {FirestoreTestComponent} from '../componentes/firestore-test/firestore-test.component';
+import {AnagramaComponent} from '../componentes/anagrama/anagrama.component';
 
 const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['/login']);
 // const onlyAllowSelf: AuthPipeGenerator = (next: ActivatedRouteSnapshot) => map(() => {
@@ -70,8 +71,8 @@ const MiRuteo = [
           data: {'authRedirect': true, authGuardPipe: redirectUnauthorizedToLogin}
         },
         {
-          path: 'firestoreTest',
-          component: FirestoreTestComponent,
+          path: 'Anagrama',
+          component: AnagramaComponent,
           canActivate: [AngularFireAuthGuard],
           data: {'authRedirect': true, authGuardPipe: redirectUnauthorizedToLogin}
         }
