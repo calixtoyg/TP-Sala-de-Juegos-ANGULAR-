@@ -122,7 +122,6 @@ import {LineChartComponent} from './componentes/line-chart/line-chart.component'
     NameFormComponent,
     ForgotPasswordDialogComponent,
     LineChartComponent,
-    MovieComponent,
   ],
   imports: [
     BrowserModule,
