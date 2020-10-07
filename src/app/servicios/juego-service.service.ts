@@ -15,6 +15,7 @@ export class JuegoServiceService {
 //    this.peticion = this.miHttp.httpGetO("https://restcountries.eu/rest/v2/all");
   }
 
+
   public listar(): Array<Juego> {
     this.miHttp.httpGetP('https://restcountries.eu/rest/v2/all')
       .then(data => {
