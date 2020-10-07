@@ -9,27 +9,35 @@ import {ActivatedRoute, Router} from '@angular/router';
 export class MenuCardComponent implements OnInit {
 
   constructor(private route: ActivatedRoute,
-    public router: Router) { }
+              public router: Router) {
+  }
 
 
   ngOnInit() {
   }
+
   Juego(tipo: string) {
     switch (tipo) {
       case 'Adivina':
-          this.router.navigate(['/Juegos/Adivina']);
+        this.router.navigate(['/Juegos/Adivina']);
         break;
       case 'Agilidad':
-          this.router.navigate(['/Juegos/Agilidad']);
+        this.router.navigate(['/Juegos/Agilidad']);
         break;
       case 'AdivinaMasListado':
-          this.router.navigate(['/Juegos/AdivinaMasListado']);
+        this.router.navigate(['/Juegos/AdivinaMasListado']);
         break;
       case 'TicTacToe':
-          this.router.navigate(['/Juegos/TicTacToe']);
+        this.router.navigate(['/Juegos/TicTacToe']);
         break;
       case 'Anagrama':
-          this.router.navigate(['/Juegos/Anagrama']);
+        this.router.navigate(['/Juegos/Anagrama']);
+        break;
+      case 'Simon':
+        this.router.navigate(['/Juegos/Simon']);
+        break;
+      case 'AdivinaActor':
+        this.router.navigate(['/Juegos/AdivinaActor']);
         break;
 
     }

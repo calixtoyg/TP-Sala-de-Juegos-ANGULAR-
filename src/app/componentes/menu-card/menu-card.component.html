@@ -1,4 +1,4 @@
-<mat-grid-list cols="3">
+<mat-grid-list cols="3" >
   <mat-grid-tile>
     <mat-card class="example-card">
       <mat-card-header>
@@ -62,6 +62,38 @@
       </mat-card-content>
       <mat-card-actions>
         <button mat-button color="primary" (click)="Juego('Anagrama')">JUGAR</button>
+      </mat-card-actions>
+    </mat-card>
+  </mat-grid-tile>
+  <mat-grid-tile>
+    <mat-card class="example-card">
+      <mat-card-header>
+        <mat-card-title>Simon</mat-card-title>
+        <mat-card-subtitle>Simon dice</mat-card-subtitle>
+      </mat-card-header>
+      <div class="image">
+        <img mat-card-image src="./assets/imagenes/simon.jpg" alt="Photo of simon">
+      </div>
+      <mat-card-content>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-button color="primary" (click)="Juego('Simon')">Jugar</button>
+      </mat-card-actions>
+    </mat-card>
+  </mat-grid-tile>
+  <mat-grid-tile>
+    <mat-card class="example-card">
+      <mat-card-header>
+        <mat-card-title>Adivina</mat-card-title>
+        <mat-card-subtitle>Adivina el actor</mat-card-subtitle>
+      </mat-card-header>
+      <div class="image">
+        <img mat-card-image src="./assets/imagenes/adivina-el-actor.png" alt="Photo of simon">
+      </div>
+      <mat-card-content>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-button color="primary" (click)="Juego('AdivinaActor')">Jugar</button>
       </mat-card-actions>
     </mat-card>
   </mat-grid-tile>

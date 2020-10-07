@@ -1,0 +1,22 @@
+<div class="container">
+  <div
+    fxLayout="column"
+    fxLayout.xs="column"
+    fxLayoutAlign="center center"
+    fxLayoutGap="15px"
+    fxLayoutGap.xs="0">
+    <h3 fxFlex="100">Adivine el actor</h3>
+    <div class="img">
+      <div class="item">
+      <img [src]=imagePath />
+      </div>
+    </div>
+    <mat-form-field fxFlex="100" appearance="legacy">
+      <mat-label>Ingrese el actor:</mat-label>
+      <input matInput [(ngModel)]="inputActor" placeholder="Ingrese la palabra">
+    </mat-form-field>
+    <button fxFlex="100" mat-raised-button color="primary" (click)="guessActor()">Adivina el actor</button>
+
+
+  </div>
+</div>

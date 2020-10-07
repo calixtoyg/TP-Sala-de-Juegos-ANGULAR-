@@ -82,6 +82,9 @@ import {SpinnerComponent} from './componentes/spinner/spinner.component';
 import {NameFormComponent} from './componentes/name-form/name-form.component';
 import {ForgotPasswordDialogComponent} from './componentes/forgot-password-dialog/forgot-password-dialog.component';
 import {LineChartComponent} from './componentes/line-chart/line-chart.component';
+import { SimonTileComponent } from './componentes/simon-tile/simon-tile.component';
+import { SimonBoardComponent } from './componentes/simon-board/simon-board.component';
+import { AdivinaActorComponent } from './componentes/adivina-actor/adivina-actor.component';
 // import { AccordionModule } from 'ngx-bootstrap';
 // agrego las clases para utilizar ruteo
 
@@ -122,6 +125,9 @@ import {LineChartComponent} from './componentes/line-chart/line-chart.component'
     NameFormComponent,
     ForgotPasswordDialogComponent,
     LineChartComponent,
+    SimonTileComponent,
+    SimonBoardComponent,
+    AdivinaActorComponent,
   ],
   imports: [
     BrowserModule,

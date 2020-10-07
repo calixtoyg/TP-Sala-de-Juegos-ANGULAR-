@@ -1,0 +1,10 @@
+<div class="container">
+  <mat-grid-list cols="2" rowHeight="2:1" [gutterSize]="'10px'">
+    <mat-grid-tile
+      *ngFor="let tile of tiles; let i = index"
+      [colspan]="tile.cols"
+      [style.background]="tile.color"
+      (click)="simonClick(i)">
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>

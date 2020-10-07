@@ -21,6 +21,8 @@ import {AngularFireAuthGuard, redirectUnauthorizedTo} from '@angular/fire/auth-g
 import {JuegosComponent} from '../componentes/juegos/juegos.component';
 import {FirestoreTestComponent} from '../componentes/firestore-test/firestore-test.component';
 import {AnagramaComponent} from '../componentes/anagrama/anagrama.component';
+import {SimonBoardComponent} from '../componentes/simon-board/simon-board.component';
+import {AdivinaActorComponent} from '../componentes/adivina-actor/adivina-actor.component';
 
 const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['/login']);
 // const onlyAllowSelf: AuthPipeGenerator = (next: ActivatedRouteSnapshot) => map(() => {
@@ -73,6 +75,18 @@ const MiRuteo = [
         {
           path: 'Anagrama',
           component: AnagramaComponent,
+          canActivate: [AngularFireAuthGuard],
+          data: {'authRedirect': true, authGuardPipe: redirectUnauthorizedToLogin}
+        },
+        {
+          path: 'Simon',
+          component: SimonBoardComponent,
+          canActivate: [AngularFireAuthGuard],
+          data: {'authRedirect': true, authGuardPipe: redirectUnauthorizedToLogin}
+        },
+        {
+          path: 'AdivinaActor',
+          component: AdivinaActorComponent,
           canActivate: [AngularFireAuthGuard],
           data: {'authRedirect': true, authGuardPipe: redirectUnauthorizedToLogin}
         }

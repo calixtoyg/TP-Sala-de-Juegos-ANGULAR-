@@ -1,0 +1,8 @@
+mat-grid-tile:hover {
+  border-width: 5px;
+  border-style: solid;
+  border-color: black;
+  box-sizing: border-box;
+  border-bottom: 5px solid black;
+
+}
