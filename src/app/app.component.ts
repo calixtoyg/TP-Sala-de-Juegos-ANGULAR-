@@ -9,7 +9,7 @@ import {AuthenticationService} from './servicios/authentication.service';
 })
 export class AppComponent {
   loggedIn: boolean;
-  constructor(private router: Router, public auth: AuthenticationService) {
+  constructor(public router: Router, public auth: AuthenticationService) {
     this.loggedIn = auth.isLoggedIn();
   }
 
@@ -23,5 +23,9 @@ export class AppComponent {
 
   logOut() {
     this.auth.logout().then(value => this.loggedIn = false).catch(console.error);
+  }
+
+  goToAbout() {
+    this.router.navigate(['/about']);
   }
 }

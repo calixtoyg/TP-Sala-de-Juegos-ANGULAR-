@@ -23,6 +23,8 @@ import {FirestoreTestComponent} from '../componentes/firestore-test/firestore-te
 import {AnagramaComponent} from '../componentes/anagrama/anagrama.component';
 import {SimonBoardComponent} from '../componentes/simon-board/simon-board.component';
 import {AdivinaActorComponent} from '../componentes/adivina-actor/adivina-actor.component';
+import {MemotestComponent} from '../componentes/memotest/memotest.component';
+import {AboutComponent} from '../componentes/about/about.component';
 
 const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['/login']);
 // const onlyAllowSelf: AuthPipeGenerator = (next: ActivatedRouteSnapshot) => map(() => {
@@ -89,10 +91,16 @@ const MiRuteo = [
           component: AdivinaActorComponent,
           canActivate: [AngularFireAuthGuard],
           data: {'authRedirect': true, authGuardPipe: redirectUnauthorizedToLogin}
+        },
+        {
+          path: 'Memotest',
+          component: MemotestComponent,
+          canActivate: [AngularFireAuthGuard],
+          data: {'authRedirect': true, authGuardPipe: redirectUnauthorizedToLogin}
         }
       ]
   },
-  {path: 'firebaseTest', component: FirebaseTestComponent},
+  {path: 'about', component: AboutComponent},
   {path: '**', component: ErrorComponent},
   {path: 'error', component: ErrorComponent}];
 

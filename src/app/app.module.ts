@@ -85,6 +85,8 @@ import {LineChartComponent} from './componentes/line-chart/line-chart.component'
 import { SimonTileComponent } from './componentes/simon-tile/simon-tile.component';
 import { SimonBoardComponent } from './componentes/simon-board/simon-board.component';
 import { AdivinaActorComponent } from './componentes/adivina-actor/adivina-actor.component';
+import { MemotestComponent } from './componentes/memotest/memotest.component';
+import { AboutComponent } from './componentes/about/about.component';
 // import { AccordionModule } from 'ngx-bootstrap';
 // agrego las clases para utilizar ruteo
 
@@ -128,6 +130,8 @@ import { AdivinaActorComponent } from './componentes/adivina-actor/adivina-actor
     SimonTileComponent,
     SimonBoardComponent,
     AdivinaActorComponent,
+    MemotestComponent,
+    AboutComponent,
   ],
   imports: [
     BrowserModule,
